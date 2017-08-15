@@ -62,3 +62,9 @@ security:
 # http://localhost:8761/
 # 首页展示了很多信息，包含当前实例的状态、注册到 Eureka Server 上的服务实例、常用信息、实例信息等。
 ```
+
+#### Docker
+```
+# 添加Docker依赖及Dockerfile文件
+$ mvn clean package docker:build
+```
