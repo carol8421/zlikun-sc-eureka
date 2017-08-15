@@ -1,0 +1,17 @@
+server:
+  port: 8761
+# register-with-eureka 表示是否将自己注册到Eureka Server，默认为：true
+# fetch-registry 表示是否从Eureka Server获取注册信息，默认为：true
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      default-zone: http://localhost:${server.port}/eureka/
+# 实现basic认证并设置用户名、密码
+security:
+  basic:
+    enabled: true
+  user:
+    name: root
+    password: xxxxxx
