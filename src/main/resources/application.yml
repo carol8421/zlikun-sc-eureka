@@ -5,8 +5,14 @@ spring:
     active: default
   application:
       name: eureka
+  # 设置
+  security:
+    user:
+      name: root
+      password: 123456
 eureka:
   instance:
+    # 设置主机名
     hostname: localhost
   client:
     # 是否从注册中心拉取注册服务列表
@@ -14,4 +20,4 @@ eureka:
     # 是否注册到注册中心
     register-with-eureka: false
     service-url:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://${spring.security.user.name}:${spring.security.user.password}@${eureka.instance.hostname}:${server.port}/eureka/
