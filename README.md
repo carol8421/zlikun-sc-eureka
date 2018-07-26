@@ -24,7 +24,14 @@ REPOSITORY                TAG                 IMAGE ID            CREATED       
 zlikun/zlikun-sc-eureka   1.0.0               bcf2d4e9f79e        2 minutes ago       689MB
 zlikun/zlikun-sc-eureka   latest              bcf2d4e9f79e        2 minutes ago       689MB
 # 6. 启动容器测试：http://192.168.0.105:8761/
-$ $ docker run -p 8761:8761 --rm zlikun/zlikun-sc-eureka
+$ docker run -p 8761:8761 --rm zlikun/zlikun-sc-eureka
+
+# 实际运行命令(测试)
+$ docker run -d \
+--name eureka \
+-p 8761:8761 \
+zlikun/zlikun-sc-eureka
+5aa8f488461e3ea48f7dc069f5428e51f713d70b0ed04ef002fd974e0742d49b
 ```
 
 #### 集群配置
