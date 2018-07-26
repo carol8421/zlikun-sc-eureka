@@ -27,25 +27,18 @@ zlikun/zlikun-sc-eureka   latest              bcf2d4e9f79e        2 minutes ago 
 $ $ docker run -p 8761:8761 --rm zlikun/zlikun-sc-eureka
 ```
 
-#### [12.5 Peer Awareness](http://cloud.spring.io/spring-cloud-static/Finchley.RELEASE/multi/multi_spring-cloud-eureka-server.html#spring-cloud-eureka-server-peer-awareness)
+#### 集群配置
 ```
+# 修改 hosts 文件，配置测试
+127.0.0.1		peer1
+127.0.0.1		peer2
 
----
-spring:
-  profiles: dev
-eureka:
-  instance:
-    hostname: dev
-  client:
-    service-url:
-      default-zone: http://dev/eureka/
----
-spring:
-  profiles: prod
-eureka:
-  instance:
-    hostname: prod
-  client:
-    service-url:
-      default-zone: http://prod/eureka/
+# 启动两个eureka服务
+$ java -jar eureka.jar --spring.profiles.active=peer1
+$ java -jar eureka.jar --spring.profiles.active=peer2
+
+# http://peer1:8761/
+# http://peer2:8762/
+
+# 可以看到每个注册中心监控页上可以看到另一个节点信息，并被标注为：available-replicas
 ```
